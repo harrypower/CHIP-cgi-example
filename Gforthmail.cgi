@@ -18,12 +18,8 @@ here holder !
   s\" Content-type: text/html; charset=utf-8\n\n" type
   s\" <title>A CHIP post reciever</title>\n\n" type ;
 
-get-post-message
 start-page
-[if]  s" an error happened during get-post-message! <br>" cr cr [then]
+get-post-message dup [if] .  s" <: this error happened during get-post-message! <br>" cr cr [then]
 Show-post
-s\" this is a test<br>\n\n" type 
-\ s\" Content-Type: text/plain;charset=us-ascii\n\n" type
-\ s\" this is a test\n\n" type
 
 bye

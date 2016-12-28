@@ -7,14 +7,12 @@ variable amount
 here holder !
 500 allot
 
-: get-post-message ( -- )
-  holder @ 500 stdin read-file throw cr cr amount !
-;
+: get-post-message ( -- nflag )
+  holder @ 500 stdin read-file swap amount ! ;
 
 : Show-post ( -- )
-  ." char recieved:" amount @ . cr cr
-  ." what i recieved: " holder @ amount @ type cr cr
-;
+  ." char recieved:" amount @ . ." <br>"
+  ." what i recieved: " holder @ amount @ type ." <br>" ;
 
 : start-page ( -- )
   s\" <!DOCTYPE html><html><title>A CHIP post reciever<\/title><body>" type ;
@@ -22,8 +20,9 @@ here holder !
 : close-page ( -- )
   s\" <\/body><\/html>" type ;
 
-get-web-message
+
 start-page
+get-post-message [if]  s\" an error happened during get-post-message! <br>" [then]
 Show-post
 close-page
 

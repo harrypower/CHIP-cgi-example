@@ -21,10 +21,12 @@ here holder !
   s\" <\/body><\/html>\n\n" type ;
 
 \ get-post-message
-start-page
+\ start-page
 \ [if]  s\" an error happened during get-post-message! <br>" [then]
 \ Show-post
-." this is a test<br>"
-close-page
+\ ." this is a test<br>"
+\ close-page
+s\" Content-Type: text/plain;charset=us-ascii\n\n"
+s\" this is a test\n\n"
 
 bye

@@ -11,21 +11,18 @@ here holder !
   holder @ 100 stdin read-file swap amount ! ;
 
 : Show-post ( -- )
-  ." char recieved:" amount @ . ." <br>"
-  ." what i recieved: " holder @ amount @ type ." <br>" ;
+  ." char recieved:" amount @ . ." <br>" cr cr
+  ." what i recieved: " holder @ amount @ type ." <br>" cr cr ;
 
 : start-page ( -- )
-  s" <!DOCTYPE html><html><title>A CHIP post reciever</title><body>" type cr cr ;
+  s\" Content-type: text/html; charset=utf-8\n\n" type
+  s\" <title>A CHIP post reciever</title>\n\n" type ;
 
-: close-page ( -- )
-  s" </body></html>" type cr cr ;
-
-\ get-post-message
+get-post-message
 start-page
-\ [if]  s" an error happened during get-post-message! <br>" cr cr [then]
-\ Show-post
-." this is a test<br>" cr cr
-close-page
+[if]  s" an error happened during get-post-message! <br>" cr cr [then]
+Show-post
+s\" this is a test<br>\n\n" type 
 \ s\" Content-Type: text/plain;charset=us-ascii\n\n" type
 \ s\" this is a test\n\n" type
 

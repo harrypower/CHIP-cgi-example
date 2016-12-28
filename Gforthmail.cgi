@@ -16,11 +16,15 @@ here holder !
   ." what i recieved: " holder @ amount @ type cr cr
 ;
 
-: header ( -- )
-  ." <!DOCTYPE html><html><title>A CHIP post reciever</title><body>" ;
+: start-page ( -- )
+  s\" <!DOCTYPE html><html><title>A CHIP post reciever<\/title><body>" type ;
+
+: close-page ( -- )
+  s\" <\/body><\/html>" type ;
 
 get-web-message
 header
 Show-post
+close
 
 bye

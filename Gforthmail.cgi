@@ -23,7 +23,8 @@ here holder !
 \ get-post-message
 start-page
 \ [if]  s\" an error happened during get-post-message! <br>" [then]
-Show-post
+\ Show-post
+." this is a test<br>"
 close-page
 
 bye

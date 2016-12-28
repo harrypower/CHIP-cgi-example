@@ -18,7 +18,7 @@ here holder !
   s\" <!DOCTYPE html><html><title>A CHIP post reciever<\/title><body>" type ;
 
 : close-page ( -- )
-  s\" <\/body><\/html>" type ;
+  s\" <\/body><\/html>\n\n" type ;
 
 \ get-post-message
 start-page

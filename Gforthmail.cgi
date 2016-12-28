@@ -23,8 +23,8 @@ here holder !
   s\" <\/body><\/html>" type ;
 
 get-web-message
-header
+start-page
 Show-post
-close
+close-page
 
 bye

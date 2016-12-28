@@ -15,18 +15,18 @@ here holder !
   ." what i recieved: " holder @ amount @ type ." <br>" ;
 
 : start-page ( -- )
-  s\" <!DOCTYPE html><html><title>A CHIP post reciever<\/title><body>" type ;
+  s" <!DOCTYPE html><html><title>A CHIP post reciever</title><body>" type cr cr ;
 
 : close-page ( -- )
-  s\" <\/body><\/html>\n\n" type ;
+  s" </body></html>" type cr cr ;
 
 \ get-post-message
-\ start-page
-\ [if]  s\" an error happened during get-post-message! <br>" [then]
+start-page
+\ [if]  s" an error happened during get-post-message! <br>" cr cr [then]
 \ Show-post
-\ ." this is a test<br>"
-\ close-page
-s\" Content-Type: text/plain;charset=us-ascii\n\n" type
-s\" this is a test\n\n" type
+." this is a test<br>" cr cr
+close-page
+\ s\" Content-Type: text/plain;charset=us-ascii\n\n" type
+\ s\" this is a test\n\n" type
 
 bye

@@ -8,7 +8,7 @@ here holder !
 500 allot
 
 : get-post-message ( -- nflag )
-  holder @ 500 stdin read-file swap amount ! ;
+  holder @ 100 stdin read-file swap amount ! ;
 
 : Show-post ( -- )
   ." char recieved:" amount @ . ." <br>"
@@ -20,9 +20,9 @@ here holder !
 : close-page ( -- )
   s\" <\/body><\/html>" type ;
 
-get-post-message
+\ get-post-message
 start-page
-[if]  s\" an error happened during get-post-message! <br>" [then]
+\ [if]  s\" an error happened during get-post-message! <br>" [then]
 Show-post
 close-page
 

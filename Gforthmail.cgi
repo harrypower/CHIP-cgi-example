@@ -30,5 +30,6 @@ variable email
 start-page
 get-post-message dup [if] .  s" <: this error happened during get-post-message! <br>"  [then]
 Show-post
+strip-email
 
 bye

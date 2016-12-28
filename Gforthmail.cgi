@@ -26,7 +26,7 @@ here holder !
 \ Show-post
 \ ." this is a test<br>"
 \ close-page
-s\" Content-Type: text/plain;charset=us-ascii\n\n"
-s\" this is a test\n\n"
+s\" Content-Type: text/plain;charset=us-ascii\n\n" type
+s\" this is a test\n\n" type
 
 bye

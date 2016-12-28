@@ -20,9 +20,9 @@ here holder !
 : close-page ( -- )
   s\" <\/body><\/html>" type ;
 
-
+get-post-message
 start-page
-get-post-message [if]  s\" an error happened during get-post-message! <br>" [then]
+[if]  s\" an error happened during get-post-message! <br>" [then]
 Show-post
 close-page
 

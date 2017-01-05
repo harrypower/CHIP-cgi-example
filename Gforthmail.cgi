@@ -32,6 +32,8 @@ variable email
   s" REMOTE_ADDR" getenv ." REMOTE_ADDR is :" type ." <br>"
   s" REQUEST_METHOD" getenv ." REQUEST_METHOD is :" type ." <br>"
   s" SHELL" getenv ." SHELL is :" type ." <br>"
+  s" USER" getenv ." USER is:" type ." <br>"
+  s" HOME" getenv ." HOME is:" type ." <br>"
 ;
 
 start-page

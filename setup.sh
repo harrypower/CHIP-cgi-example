@@ -10,3 +10,4 @@ sudo cp Gforthmailget.cgi /usr/lib/cgi-bin/Gforthmailget.cgi
 
 sudo chmod 755 /usr/lib/cgi-bin/Gforthmail.cgi
 sudo chmod 755 /usr/lib/cgi-bin/Gforthmailget.cgi
+

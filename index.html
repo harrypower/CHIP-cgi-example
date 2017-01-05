@@ -7,7 +7,13 @@
 <p>This is the chip talking!</p>
 
 <form action="/cgi-bin/Gforthmail.cgi" method="post">
-Give me your email to test sent an email to you!<br>
+Give me your email to test sent an email to you(form submitted via post)!<br>
+  <input type="text" name="Eaddress" value="myemail@mail.com"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<form action="/cgi-bin/Gforthmailget.cgi" method="get">
+Give me your email to test sent an email to you(form submitted via get)!<br>
   <input type="text" name="Eaddress" value="myemail@mail.com"><br>
   <input type="submit" value="Submit">
 </form>

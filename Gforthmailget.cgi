@@ -25,9 +25,9 @@ variable email
   amount ! holder !
   s" REMOTE_ADDR" getenv ." REMOTE_ADDR is :" type ." <br>"
   s" REQUEST_METHOD" getenv ." REQUEST_METHOD is :" type ." <br>"
-  s" SHELL" getenv ." SHELL is :" type ." <br>"
-  s" USER" getenv ." USER is:" type ." <br>"
-  s" HOME" getenv ." HOME is:" type ." <br>"
+  s" HTTP_REFERER" getenv ." HTTP_REFERER is:" type ." <br>"
+  s" HTTP_HOST" getenv ." HTTP_HOST is:" type ." <br>"
+  s" SERVER_SOFTWARE" getenv ." SERVER_SOFTWARE is:" type ." <br>"
 ;
 
 start-page

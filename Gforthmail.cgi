@@ -25,11 +25,18 @@ variable email
   if 9 /string preemail $!
   preemail $@ type s\" < this is the email address before processing!<br>" type
   else s\" No Email address provided!<br>" type
-  then
+  then ;
+
+: get-get-message ( -- )
+  s" QUERY_STRING" getenv ." QUERY_STRING is :" type ." <br>"
+  s" REMOTE_ADDR" getenv ." REMOTE_ADDR is :" type ." <br>"
+  s" REQUEST_METHOD" getenv ." REQUEST_METHOD is :" type ." <br>"
 ;
+
 start-page
 get-post-message dup [if] .  s" <: this error happened during get-post-message! <br>"  [then]
 Show-post
 strip-email
+get-get-message
 
 bye

@@ -2,7 +2,7 @@
 Simple web pages with some cgi code using some ssmtp email stuff
 
 ## *index.html*
-Basic html page allowing access to *Gforthmail.cgi* and *Gforthmailget.cgi* via form submit buttons
+Basic html page allowing access to *Gforthmail.cgi* and *Gforthmailget.cgi* via form submit buttons.
 
 ## *Gforthmail.cgi*
 Gforth code that will be executed as a cgi script.

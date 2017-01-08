@@ -21,4 +21,9 @@ Script needs to be set to execute with chmod -x and needs to be run as su or sud
 Documentation on set up information to make a RN171XV Wifly device send automatic sensor and GPIO information data to a web server!
 
 ## *README.md*
-This document! 
+This document!
+
+## *main.cpp*
+This is the main.cpp code that can be used with an mbed LPC1768 device to connect to the RN171XV Wifly device for command mode programing!
+This code is not use in the cgi or web page stuff on the chip at all but is here for completeness as it is referenced in the RN171XV-sensor.md document.
+**Note** the mbed code does not define the uart settings at all because the default settings are used and they match the RN171XV uart needs.  

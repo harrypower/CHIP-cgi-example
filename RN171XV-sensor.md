@@ -23,6 +23,8 @@ router connecting and sensor data sending when the below commands are entered an
   reboot
   ```
 
+  * These commands will now ensure the Wifly will reconnect to your router and get IP address via DHCP from router every time it powers up!
+
 * *Configure Wifly to send sensor data to a web server*
   * Following commands issued to Wilfy in command mode!
     * directly from DS50002230B page 48 of RN171XV user manual!
@@ -38,3 +40,12 @@ router connecting and sensor data sending when the below commands are entered an
   save
   reboot
   ```
+
+  * These commands will sent the sensor data via a GET message to the web server located at 192.168.0.215
+  The port to receive the message is 80.  In this case the cgi script called Gforthmailget.cgi will be executed on the web server.
+  Now this will simply return the information that the cgi script normaly returns.  This information will include the QUERY_STRING and it will be something like
+  DATA=0D117DF308BF09E909F406DB07CC7AF806A5.  This should be seen on the uart connection of the Tera Term program that was set up to issue the command mode messages.
+  The point of this is for testing.  The next section will have another script to retrieve the data from the web server as it receives it so the Tera Term program and the
+  mcu will not be needed normally allowing the Wifly to be used with out any other hardware other then the sensors and power circuit!
+
+  

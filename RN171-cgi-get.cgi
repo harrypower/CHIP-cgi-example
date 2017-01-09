@@ -33,7 +33,7 @@ variable output$
 prep-message
 
 : save-message ( -- )
-  s" /run/cgitest.tmp" w/o open-file drop swap to fid
+  s" /run/cgitest.tmp" w/o open-file swap to fid
   false = if
     output$ $@ fid write-file drop
     fid flush-file drop

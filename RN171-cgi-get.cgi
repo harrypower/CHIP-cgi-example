@@ -15,7 +15,7 @@ variable output$
   s\" All Ok\n\n" type ;
 
 : get-get-message ( -- )
-  s" QUERY_STRING" getenv query$ $! ;
+  s" QUERY_STRING is:" query$ $! s" QUERY_STRING" getenv query$ $+! ;
 
 : get-apache-stuff ( -- )
   s" REMOTE_ADDR is :" apache$s $! s" REMOTE_ADDR" getenv apache$s $+! lineending apache$s $+!

@@ -7,6 +7,9 @@ variable apache$s
 variable output$
 0 value fid
 
+: lineending ( -- caddr u )
+  s\" <br>\n\n" ;
+  
 : return-message ( -- )
   s\" Content-type: text/html; charset=utf-8\n\n" type
   s\" All Ok\n\n" type ;
@@ -21,9 +24,6 @@ variable output$
   s" HTTP_HOST is:" apache$s $+! s" HTTP_HOST" getenv apache$s $+! lineending apache$s $+!
   s" SERVER_SOFTWARE is:" apache$s $+! s" SERVER_SOFTWARE" getenv  apache$s $+! lineending apache$s $+!
 ;
-
-: lineending ( -- caddr u )
-  s\" <br>\n\n" ;
 
 : prep-message ( -- )
   get-get-message

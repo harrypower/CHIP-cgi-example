@@ -13,4 +13,4 @@ sudo touch /run/cgitest.tmp
 
 sudo chmod 755 /usr/lib/cgi-bin/Gforthmail.cgi
 sudo chmod 755 /usr/lib/cgi-bin/Gforthmailget.cgi
-suod chmod 755 /usr/lib/cgi-bin/RN171-cgi-get.cgi
+sudo chmod 755 /usr/lib/cgi-bin/RN171-cgi-get.cgi

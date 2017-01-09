@@ -9,7 +9,7 @@ variable output$
 
 : lineending ( -- caddr u )
   s\" <br>\n\n" ;
-  
+
 : return-message ( -- )
   s\" Content-type: text/html; charset=utf-8\n\n" type
   s\" All Ok\n\n" type ;
@@ -28,14 +28,14 @@ variable output$
 : prep-message ( -- )
   get-get-message
   get-apache-stuff
-  query$ @$ output$ $! apache$s @$ output$ $+! ;
+  query$ $@ output$ $! apache$s $@ output$ $+! ;
 
 prep-message
 
 : save-message ( -- )
   s" /run/cgitest.tmp" w/o open-file drop swap to fid
   false = if
-    output$ @$ fid write-file drop
+    output$ $@ fid write-file drop
     fid flush-file drop
     fid close-file drop
   then ;

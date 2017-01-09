@@ -30,7 +30,7 @@ router connecting and sensor data sending when the below commands are entered an
     * directly from DS50002230B page 48 of RN171XV user manual!
   ```
   set ip proto 18
-  set dns name 192.168.0.215 \ this should be set to your web server address on the router that Wifly is connected to
+  set dns name 192.168.0.215
   set ip host 0
   set ip remote 80
   set com remote GET$/cgi-bin/Gforthmailget.cgi?DATA=
@@ -41,11 +41,15 @@ router connecting and sensor data sending when the below commands are entered an
   reboot
   ```
 
-  * These commands will sent the sensor data via a GET message to the web server located at 192.168.0.215
+    * These commands will sent the sensor data via a GET message to the web server located at 192.168.0.215
   The port to receive the message is 80.  In this case the cgi script called Gforthmailget.cgi will be executed on the web server.
   Now this will simply return the information that the cgi script normaly returns.  This information will include the QUERY_STRING and it will be something like
   DATA=0D117DF308BF09E909F406DB07CC7AF806A5.  This should be seen on the uart connection of the Tera Term program that was set up to issue the command mode messages.
   The point of this is for testing.  The next section will have another script to retrieve the data from the web server as it receives it so the Tera Term program and the
   mcu will not be needed normally allowing the Wifly to be used with out any other hardware other then the sensors and power circuit!
 
-  
+  * Use the above script to program the Wifly but change the `set com remote` command to say the following:
+  ```
+  set com remote GET$/cgi-bin/RN171-cgi-get.cgi?DATA=
+  ```
+    * This will send the GET message every 30 seconds from the Wifly to the server at /cgi-bin/RN171-cgi-get.cgi script for data retrieval and storage example.

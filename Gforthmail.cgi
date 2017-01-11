@@ -20,10 +20,18 @@ variable email
   s\" Content-type: text/html; charset=utf-8\n\n" type
   s\" <title>A CHIP post reciever</title>" type ;
 
+: parse-email ( -- )
+  preemail $@ s" %40" search true =
+  if dup preemail $@ rot - email $! s" @" email $+! 3 /string email $+!
+  else 2drop
+  then ;
+
 : strip-email ( -- )
   holder @ amount @ s" Eaddress=" search true =
   if 9 /string preemail $!
   preemail $@ type s\" < this is the email address before processing!<br>" type
+  parse-email
+  email $@ type s\" < this is the processed email!<br>" type
   else s\" No Email address provided!<br>" type
   then ;
 
@@ -34,6 +42,7 @@ variable email
   s" HTTP_REFERER" getenv ." HTTP_REFERER is:" type ." <br>"
   s" HTTP_HOST" getenv ." HTTP_HOST is:" type ." <br>"
   s" SERVER_SOFTWARE" getenv ." SERVER_SOFTWARE is:" type ." <br>"
+  s" date" system ." <br>"
 ;
 
 start-page

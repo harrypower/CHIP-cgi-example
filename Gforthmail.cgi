@@ -34,8 +34,7 @@ variable email-message
   email $@ email-message $+!
   s\" \n" email-message $+!
   s\" A automated message from the CHIP!\n" email-message $+!
-  s" touch /run/cgimail.tmp" system
-  s" /run/cgimail.tmp" w/o open-file swap to fid
+  s\" /run/cgimail.tmp" w/o open-file swap to fid
   false = if
     email-message $@ fid write-file drop
     fid flush-file drop

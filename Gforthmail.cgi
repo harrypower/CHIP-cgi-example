@@ -8,6 +8,8 @@ here holder !
 500 allot
 variable preemail
 variable email
+variable email-message
+0 value fid
 
 : get-post-message ( -- nflag )
   holder @ 100 stdin read-file swap amount ! ;
@@ -26,12 +28,32 @@ variable email
   else 2drop
   then ;
 
+: sendmail ( -- )
+  s\" subject: Hello from the chip\n" email-message $!
+  s\" from: " email-message $+!
+  email $@ email-message $+!
+  s\" \n" email-message $+!
+  s\" A automated message from the CHIP!\n" email-message $+!
+  s" touch /run/cgimail.tmp" system
+  s" /run/cgimail.tmp" w/o open-file swap to fid
+  false = if
+    email-message $@ fid write-file drop
+    fid flush-file drop
+    fid close-file drop
+  then
+  s" ssmtp " email-message $!
+  email $@ email-message $+!
+  s\"  /run/cgimail.tmp" email-message $+!
+  email-message $@ system
+;
+
 : strip-email ( -- )
   holder @ amount @ s" Eaddress=" search true =
   if 9 /string preemail $!
   preemail $@ type s\" < this is the email address before processing!<br>" type
   parse-email
-  email $@ type s\" < this is the processed email!<br>" type
+  email $@ type s\" < this is the processed email address !<br>" type
+  sendmail
   else s\" No Email address provided!<br>" type
   then ;
 

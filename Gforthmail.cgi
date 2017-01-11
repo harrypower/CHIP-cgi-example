@@ -40,10 +40,6 @@ variable email-message
     fid flush-file drop
     fid close-file drop
   then
-  s" sudo ssmtp " email-message $!
-  email $@ email-message $+!
-  s\"  /run/cgimail.tmp" email-message $+!
-  email-message $@ system
 ;
 
 : strip-email ( -- )

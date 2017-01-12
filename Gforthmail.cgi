@@ -36,7 +36,7 @@ variable email-message
     fid flush-file drop
     fid close-file drop
   then
-  s\" echo \"Chip message!\" | mail -s \"Test Chip Attachment email!\" " email-message $!
+  s\" echo \"Chip message!\" | mail -s \"Test Chip Attachment email!\" -a \"/run/cgimail.tmp\" " email-message $!
   email-address $@ email-message $+!
   email-message $@ system
 ;

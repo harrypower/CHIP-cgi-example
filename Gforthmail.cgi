@@ -7,7 +7,7 @@ variable amount
 here holder !
 500 allot
 variable preemail
-variable email
+variable email-address
 variable email-message
 0 value fid
 
@@ -24,22 +24,21 @@ variable email-message
 
 : parse-email ( -- )
   preemail $@ s" %40" search true =
-  if dup preemail $@ rot - email $! s" @" email $+! 3 /string email $+!
+  if dup preemail $@ rot - email-address $! s" @" email-address $+! 3 /string email-address $+!
   else 2drop
   then ;
 
 : sendmail ( -- )
-  s\" subject: Hello from the chip\n" email-message $!
-  s\" from: " email-message $+!
-  email $@ email-message $+!
-  s\" \n" email-message $+!
-  s\" A automated message from the CHIP!\n" email-message $+!
+  s\" A automated message from the CHIP!\n" email-message $!
   s\" /run/cgimail.tmp" w/o open-file swap to fid
   false = if
     email-message $@ fid write-file drop
     fid flush-file drop
     fid close-file drop
   then
+  s\" echo \"Chip message!\" | mail -s \"Test Chip Attachment email!\" " email-message $!
+  email-address $@ email-message $+!
+  email-message $@ system
 ;
 
 : strip-email ( -- )
@@ -47,7 +46,7 @@ variable email-message
   if 9 /string preemail $!
   preemail $@ type s\" < this is the email address before processing!<br>" type
   parse-email
-  email $@ type s\" < this is the processed email address !<br>" type
+  email-address $@ type s\" < this is the processed email address !<br>" type
   sendmail
   else s\" No Email address provided!<br>" type
   then ;
@@ -67,5 +66,4 @@ get-post-message dup [if] .  s" <: this error happened during get-post-message! 
 Show-post
 strip-email
 get-get-message
-
 bye

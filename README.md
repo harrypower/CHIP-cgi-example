@@ -1,9 +1,9 @@
 # CHIP-cgi-example
-Basic web page with some cgi code using Gforth as script.
-Email example using sSMTP and mail command from command line.
-RN171 Wifly test used in push mode to this web apache server.
-Note at this time only the Gforthmail.cgi script will actually mail the email address that is received via a post message!
-Note these post get and RN171 code examples are not interdependent so they can be used with out the other parts.  The intent is to show how this stuff works and can be a starting point
+* Basic web page with some cgi code using Gforth as script.
+* Email example using sSMTP and mail command from command line.
+* RN171 Wifly test used in push mode to this web apache server.
+* Note at this time only the Gforthmail.cgi script will actually mail the email address that is received via a post message!
+* Note these post get and RN171 code examples are not interdependent so they can be used with out the other parts.  The intent is to show how this stuff works and can be a starting point
 or playground for other examples or test!
 
 ## Configure these examples

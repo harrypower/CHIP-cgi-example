@@ -1,5 +1,14 @@
 # CHIP-cgi-example
-Simple web pages with some cgi code using some ssmtp email stuff
+Basic web page with some cgi code using Gforth as script.
+Email example using sSMTP and mail command from command line.
+RN171 Wifly test used in push mode to this web apache server.
+Note at this time only the Gforthmail.cgi script will actually mail the email address that is received via a post message!
+
+## Configure these examples
+* Use my document [here](https://github.com/harrypower/CHIPdocs) to configure and set up the CHIP
+  * Ensure you set up the Apache server and configure it for CGI as shown [here](https://github.com/harrypower/CHIPdocs/blob/master/my_chip_software.md).
+  * Ensure you set up the sSMTP stuff for basic smtp mail sending and test it to ensure it works.  Can be found [here](https://github.com/harrypower/CHIPdocs/blob/master/my_chip_software.md).
+  * Run the included setup.sh script to put the files in the correct place and start the ram files that are used by the cgi scripts.
 
 ## *index.html*
 Basic html page allowing access to *Gforthmail.cgi* and *Gforthmailget.cgi* via form submit buttons.
@@ -35,3 +44,7 @@ Also several other environment variables are retrieved and stored in /run/cgites
 RN171 Analog and GPIO data can be retrieved from the QUERY_STRING.  This works with the information in RN171XV-sensor.md document provided that the information
 in that document is used to set up the RN171XV device and the device is set to point to this script!
 **Note** the /run/cgitest.tmp file location is used because it is a tempfs mounted directory so it is in ram and not flash so no wearing issues!
+
+## *last-RN171-data.cgi*
+This is a Gforth script executed as cgi code.  It will return the last message received from the RN171 device that is pushing data to this server.
+This script will be placed into cgi-bin directory by the setup.sh script.

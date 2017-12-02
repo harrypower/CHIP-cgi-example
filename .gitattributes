@@ -1,1 +1,2 @@
 *.cgi linguist-language=Forth
+*.fs  linguist-language=Forth
